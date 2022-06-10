@@ -44,9 +44,15 @@ public class Program {
 				}
 				
 				if (chessMatch.getPromoted() != null) {
-					System.out.println("Enter piece for promotion");
 					System.out.println("B: Bishop | N: Kinght | R: Rook | Q: Queen");
-					String type = sc.nextLine();
+					System.out.print("Enter piece for promotion: ");
+					String type = sc.nextLine().toUpperCase();
+					while (!type.equals("B") && !type.equals("N") && !type.equals("R") 
+							&& !type.equals("Q")) {
+						System.out.println("B: Bishop | N: Kinght | R: Rook | Q: Queen");
+						System.out.print("Enter piece for promotion: ");
+						type = sc.nextLine().toUpperCase();
+					}
 					chessMatch.replacePromotedPiece(type);
 				}
 			}
